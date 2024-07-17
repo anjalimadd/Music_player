@@ -38,8 +38,7 @@ async function getSongs(folder) {
       .getElementsByTagName("ul")[0];
     songUL.innerHTML = "";
     for (const song of songs) {
-      songUL.innerHTML =
-        songUL.innerHTML +
+      songUL.innerHTML +=
         `<li>
           <img class="invert" src="img/music.svg" alt="">
           <div class="info">
@@ -104,7 +103,7 @@ async function main() {
   //display all the albums on the page
   displayAlbums();
 
-  //Attach an event listernerto paly, next and previous
+  //Attach an event listener to play, next and previous
   play.addEventListener("click", () => {
     if (currentSong.paused) {
       currentSong.play();
@@ -125,23 +124,23 @@ async function main() {
       (currentSong.currentTime / currentSong.duration) * 100 + "%";
   });
 
-  //Add a event listener to seekbar
+  //Add an event listener to seekbar
   document.querySelector(".seekbar").addEventListener("click", (e) => {
     let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
     document.querySelector(".circle").style.left = percent + "%";
     currentSong.currentTime = (currentSong.duration * percent) / 100;
   });
 
-  //add event listerner for hamburger
+  //add event listener for hamburger
   document.querySelector(".hamburger").addEventListener("click", () => {
     document.querySelector(".left").style.left = "0";
   });
-  //add event listerner for close button
+  //add event listener for close button
   document.querySelector(".close").addEventListener("click", () => {
     document.querySelector(".left").style.left = "-120%";
   });
 
-  //ADD an event listerner to previous and next
+  //ADD an event listener to previous and next
 
   previous.addEventListener("click", () => {
     currentSong.pause();
